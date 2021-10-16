@@ -16,10 +16,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/css/bootstrap.min.css' }
+      // { rel: 'stylesheet', href: '/css/bootstrap.min.css' }
     ],
     script: [
-      { src: "/js/bootstrap.bundle.min.js", type: "text/javascript"}
+      // { src: "/js/bootstrap.bundle.min.js", type: "text/javascript"}
     ],
   },
 
@@ -38,7 +38,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    // '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
