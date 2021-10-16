@@ -5,14 +5,30 @@
     </div>
     
     <div>
-      <Post/>
+      <Post v-for="post in posts" :key="post.id" :post="post" />
     </div>
     
   </div>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   export default {
-    name: 'index'
+
+    computed: {
+      ...mapGetters ({
+        posts: 'posts/posts'
+      }) 
+    },
+
+    methods: {
+      ...mapActions ({
+        getPosts: 'posts/getPosts'
+      })
+    },
+
+    mounted(){
+      this.getPosts()
+    }
   }
 </script>
