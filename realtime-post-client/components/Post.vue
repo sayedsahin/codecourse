@@ -4,10 +4,10 @@
 			<img class="w-12 h-12 rounded-full object-cover mr-4 shadow" :src="post.user.avatar" alt="avatar">
 			<div class="">
 				<div class="flex items-center justify-between">
-					<h2 class="text-lg font-semibold text-gray-900 -mt-1">{{ post.user.name }} </h2>
+					<h2 class="text-lg font-semibold text-gray-900 -mt-1">{{ post.id }} {{ post.user.name }} </h2>
 					<small class="text-sm text-gray-700">{{ post.created_at }}</small>
 				</div>
-				<p class="mt-1 text-gray-700 text-sm">{{ post.body }}</p>
+				<p class="mt-1 text-gray-700 text-md">{{ post.body }}</p>
 				<div class="mt-4 flex items-center">
 					<div class="flex mr-2 text-gray-700 text-sm mr-3">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

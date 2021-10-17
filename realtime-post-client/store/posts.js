@@ -20,6 +20,10 @@ export default {
 
 		PREPEND_POST (state, post){
 			state.prependedPosts = [ post, ...state.prependedPosts ]
+		},
+
+		APPEND_POSTS (state, posts){
+			state.posts = [...state.posts, ...posts]
 		}
 	},
 
@@ -27,6 +31,12 @@ export default {
 		async getPosts({ commit }) {
 			let posts = await this.$axios.get('api/posts')
 			commit('SET_POSTS', posts.data.data)
+		},
+
+		
+		async getMorePosts({ commit, state }, page) {
+			let posts = await this.$axios.get(`api/posts?page=${page}&skip=${state.prependedPosts.length}`)
+			commit('APPEND_POSTS', posts.data.data)
 		},
 
 		async createPost({ commit }, post) {

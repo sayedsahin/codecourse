@@ -13,9 +13,20 @@ class PostController extends Controller
         $this->middleware(['auth:sanctum'])->only('store');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('user')->latest()->get();
+        /* Pagination Logic
+         1 - 1 * 5 = 0
+         2 - 1 * 5 = 5
+         3 - 1 * 5 = 10
+        */
+        
+        $skip = $request->get('skip', 0) + ( ($request->get('page') - 1) * 5 );
+        $posts = Post::with('user')
+            ->take(5)
+            ->skip($skip)
+            ->latest()
+            ->get();
         return PostResource::collection($posts);
     }
 
