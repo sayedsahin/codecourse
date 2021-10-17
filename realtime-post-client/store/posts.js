@@ -2,19 +2,24 @@ export default {
 
 	state() {
 		return {
-			posts: []
+			posts: [],
+			prependedPosts: []
 		}
 	},
 
 	getters: {
 		posts(state){
-			return state.posts
+			return [...state.prependedPosts, ...state.posts]
 		}
 	},
 
 	mutations: {
 		SET_POSTS (state, posts){
 			state.posts = posts
+		},
+
+		PREPEND_POST (state, post){
+			state.prependedPosts = [ post, ...state.prependedPosts ]
 		}
 	},
 
@@ -25,7 +30,8 @@ export default {
 		},
 
 		async createPost({ commit }, post) {
-			await this.$axios.post('api/post', post)
+			let prependedPost = await this.$axios.post('api/post', post)
+			commit('PREPEND_POST', prependedPost.data.data)
 		}
 	}
 }
