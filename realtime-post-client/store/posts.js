@@ -34,6 +34,10 @@ export default {
 
 		APPEND_LIKES (state, likes) {
 			state.likes = Object.assign({}, state.likes, likes)
+		},
+
+		SET_LIKES (state, { postId, likeCount}) {
+			state.likes[postId] = likeCount
 		}
 	},
 
@@ -54,6 +58,12 @@ export default {
 		async createPost({ commit }, post) {
 			let prependedPost = await this.$axios.post('api/post', post)
 			commit('PREPEND_POST', prependedPost.data.data)
+		},
+
+		async createLike({ commit }, postId) {
+			let like = await this.$axios.post(`api/posts/${postId}/like`)
+
+			commit('SET_LIKES', { postId, likeCount: like.data.likes })
 		}
 	}
 }
