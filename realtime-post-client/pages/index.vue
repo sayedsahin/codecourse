@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
   export default {
 
     data () {
@@ -35,15 +35,20 @@
 
       visibilityChange(isVisibale){
         if (!isVisibale) {
-          return
+          return;
         }
-        ++this.page
-        this.getMorePosts(this.page)
+        ++this.page;
+        this.getMorePosts(this.page);
       }
     },
 
     mounted(){
-      this.getPosts()
+      this.getPosts();
+
+      this.$echo.channel('post')
+        .listen('PostCreated', (e) => {
+            console.log(e);
+         })
     }
   }
 </script>
