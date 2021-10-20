@@ -4,8 +4,8 @@
 			<img class="w-12 h-12 rounded-full object-cover mr-4 shadow" :src="post.user.avatar" alt="avatar">
 			<div class="">
 				<div class="flex items-center justify-between">
-					<h2 class="text-lg font-semibold text-gray-900 -mt-1">{{ post.id }} {{ post.user.name }} </h2>
-					<small class="text-sm text-gray-700">{{ post.created_at }}</small>
+					<h2 class="text-lg font-semibold text-gray-900 -mt-1"> {{ post.user.name }} </h2>
+					<small class="text-sm text-gray-700"><Time :timestamp="post.created_at" /></small>
 				</div>
 				<p class="mt-1 text-gray-700 text-md">{{ post.body }}</p>
 				<div class="mt-4 flex items-center">

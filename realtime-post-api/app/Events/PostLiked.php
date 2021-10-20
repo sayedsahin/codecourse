@@ -11,25 +11,25 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class PostCreated implements ShouldBroadcast
+class PostLiked implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $post;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Post $post)
+    public function __construct(public Post $post)
     {
-        $this->post = $post;
+
     }
 
     public function broadcastWith()
     {
         return [
-            'post_id' => $this->post->id
+            'post_id' => $this->post->id,
+            'likes' => $this->post->likes->count()
         ];
     }
 

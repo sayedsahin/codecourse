@@ -32,6 +32,7 @@ export default {
   plugins: [
     {src: './plugins/vue-observe-visibility', mode: 'client'},
     {src: './plugins/echo', mode: 'client'},
+    {src: './plugins/axios', mode: 'client'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
