@@ -26,7 +26,7 @@
 						</template>
 						<template v-if="!$auth.loggedIn">
 							<nuxt-link class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0" :to="{ name: 'login' }">Login</nuxt-link>
-							<a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0" href="#">Register</a>
+							<nuxt-link :to="{name: 'register'}" class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0" href="#">Register</nuxt-link>
 						</template>
 					</div>
 				</div>

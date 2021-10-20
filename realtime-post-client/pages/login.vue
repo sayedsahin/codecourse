@@ -5,7 +5,7 @@
 				<h1 class="my-3 text-4xl font-bold">Sign in</h1>
 				<p class="text-sm text-coolGray-600">Sign in to access your account</p>
 			</div>
-			<form novalidate="" action="" class="space-y-12 ng-untouched ng-pristine ng-valid">
+			<form novalidate="" action="" class="space-y-4 ng-untouched ng-pristine ng-valid">
 				<div class="space-y-4">
 					<div>
 						<label for="email" class="block mb-2 text-sm">Email address</label>

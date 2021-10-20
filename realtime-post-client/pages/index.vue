@@ -1,7 +1,8 @@
 <template>
   <div class="p-6 mx-auto my-3 max-w-md md:max-w-2xl">
     <div>
-      <PostForm/>
+      <PostForm v-if="$auth.loggedIn" />
+      <p v-else><nuxt-link :to="{name: 'login'}" class="text-indigo-500">Login</nuxt-link> to post</p>
     </div>
     <div>
       <Post v-for="post in posts" :key="post.id" :post="post" />
