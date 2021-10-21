@@ -32,8 +32,8 @@
 					<div>
 						<button @click.prevent="register" type="button" class="w-full px-8 py-3 rounded-md bg-purple-700 text-gray-50">Register</button>
 					</div>
-					<p class="px-6 text-sm text-center text-coolGray-600">Don't have an account yet?
-						<nuxt-link :to="{name: 'login'}" class="hover:underline text-purple-600">Signin</nuxt-link>. 
+					<p class="px-6 text-sm text-center text-coolGray-600">You have already account?
+						<nuxt-link :to="{name: 'login'}" class="hover:underline text-purple-600">Login</nuxt-link>. 
 					</p>
 				</div>
 			</form>

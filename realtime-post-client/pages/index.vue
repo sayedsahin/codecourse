@@ -50,23 +50,14 @@
     },
 
     mounted(){
-      this.getPosts()
+      this.getPosts();
 
       this.$echo.channel('posts')
         .listen('PostCreated', (e) => {
             this.getSinglePost(e.post_id);
-         })
-        .listen('PostLiked', (e) => {
+        }).listen('PostLiked', (e) => {
             this.SET_LIKES({ postId: e.post_id, likeCount: e.likes });
-         })
-
-      /*this.$echo.channel('posts')
-        .listen('PostCreated', (e) => {
-            this.getSinglePost(e.post_id);
-         })
-        .listen('PostLiked', (e) => {
-            this.SET_LIKES({ postId: e.post_id, likeCount: e.likes });
-         })*/
+        });
     }
   }
 </script>

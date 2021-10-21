@@ -24,7 +24,7 @@
 						<button @click.prevent="login" type="button" class="w-full px-8 py-3 rounded-md bg-purple-700 text-gray-50">Sign in</button>
 					</div>
 					<p class="px-6 text-sm text-center text-coolGray-600">Don't have an account yet?
-						<a href="#" class="hover:underline text-purple-600">Sign up</a>. 
+						<nuxt-link :to="{name: 'register'}" class="hover:underline text-purple-600">Sign up</nuxt-link>. 
 					</p>
 				</div>
 			</form>
