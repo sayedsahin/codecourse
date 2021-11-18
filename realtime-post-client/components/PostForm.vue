@@ -3,6 +3,7 @@
     <div>
       <label for="body"></label>
       <textarea v-model="form.body" class="w-full py-6 px-4 border border-gry-300" name="body" id="body" placeholder="Say Somthing"></textarea>
+      <div v-if="errors.body" class="text-red-600 font-semibold ml-2">*{{errors.body[0]}}</div>
     </div>
     <div>
       <button class="form-button">Post it</button>
@@ -18,7 +19,8 @@ export default {
 		return {
 			form: {
 				body: ''
-			}
+			},
+			errors:{},
 		}
 	},
 
@@ -30,9 +32,12 @@ export default {
 	  async createPost () {
 	    try{
 	    	await this.createPostAction(this.form)
-	    	this.form.body = ''
+	    	this.form.body = '';
+	    	this.errors = {};
 	    }catch (e) {
-	    	// validation
+	    	if (e.response.status == 422) {
+	    		this.errors = e.response.data.errors
+	    	}
 	    }
 	  }
 	}

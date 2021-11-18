@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,4 @@ Route::post('/post', [PostController::class, 'store']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/post/{post}', [PostController::class, 'show']);
 Route::post('/posts/{post}/like', [PostLikeController::class, 'store']);
+Route::get('/profile/{user}', [ProfileController::class, 'show']);

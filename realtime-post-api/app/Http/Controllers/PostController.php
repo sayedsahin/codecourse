@@ -14,6 +14,7 @@ class PostController extends Controller
         $this->middleware(['auth:sanctum'])->only('store');
     }
 
+    // Use skip when created a new post before pagination like twitter
     public function index(Request $request)
     {
         /* Pagination Logic
